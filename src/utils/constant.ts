@@ -61,6 +61,7 @@ import {
   Calendar,
   FileText,
   Building2,
+  Trophy,
 } from "lucide-react";
 
 export const navLinks: NavLink[] = [
