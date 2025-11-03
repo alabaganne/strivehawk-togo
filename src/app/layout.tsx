@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Supabase Rebuild",
-  description: "Landing Page for Supabase",
+  title: "Strivehawk Togo",
+  description:
+    "Solutions IT, cloud et cybersécurité pour les entreprises d’Afrique de l’Ouest.",
 };
 
 export default function RootLayout({
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-brand selection:text-secondary-color`}
       >

@@ -1,24 +1,20 @@
 import { Header } from "@/components/header";
-import { CTA } from "@/components/sections/cta";
-import { CustomerStories } from "@/components/sections/customer-stories";
 import { Footer } from "@/components/sections/footer";
-import { Frameworks } from "@/components/sections/frameworks";
 import { HeroSection } from "@/components/sections/hero-section";
-import { VideoShowcase } from "@/components/sections/video-showcase";
-import { StartBuilding } from "@/components/sections/start-building-section";
-import { Testimonial } from "@/components/sections/testimonial";
+import { Expertises } from "@/components/sections/expertises";
+import { FinalCTA } from "@/components/sections/final-cta";
+import { Partnerships } from "@/components/sections/partnerships";
+import { WhyStrivehawk } from "@/components/sections/why-strivehawk";
 
 export default function Home() {
   return (
     <>
       <Header />
       <HeroSection />
-      <CustomerStories />
-      <StartBuilding />
-      <Frameworks />
-      <VideoShowcase />
-      <Testimonial />
-      <CTA />
+      <WhyStrivehawk />
+      <Expertises />
+      <Partnerships />
+      <FinalCTA />
       <Footer />
     </>
   );
