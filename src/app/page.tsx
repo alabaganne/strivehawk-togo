@@ -8,23 +8,23 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { Partnerships } from "@/components/sections/partnerships";
 import { StartBuilding } from "@/components/sections/start-building-section";
 import { Testimonial } from "@/components/sections/testimonial";
-import { VideoShowcase } from "@/components/sections/video-showcase";
 import { WhyStrivehawk } from "@/components/sections/why-strivehawk";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <HeroSection />
-      <WhyStrivehawk />
-      <Expertises />
-      <Partnerships />
-      <CustomerStories />
-      <StartBuilding />
-      <Frameworks />
-      <VideoShowcase />
-      <Testimonial />
-      <CTA />
+      <main className="pt-32">
+        <HeroSection />
+        <WhyStrivehawk />
+        <Expertises />
+        <Partnerships />
+        <CustomerStories />
+        <StartBuilding />
+        <Frameworks />
+        <Testimonial />
+        <CTA />
+      </main>
       <Footer />
     </>
   );

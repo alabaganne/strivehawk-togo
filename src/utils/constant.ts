@@ -62,6 +62,11 @@ import {
   FileText,
   Building2,
   Trophy,
+  Landmark,
+  Heart,
+  ShoppingCart,
+  Shield,
+  Cloud,
 } from "lucide-react";
 
 export const navLinks: NavLink[] = [
@@ -354,35 +359,35 @@ export const testimonials = [
 export const customerStories = [
   {
     main: {
-      img: ChatBaseIcon,
-      text: "Banque régionale : continuité d’activité garantie avec une infrastructure hybride sécurisée.",
+      img: Landmark,
+      text: "Banque régionale : continuité d'activité garantie avec une infrastructure hybride sécurisée.",
     },
 
     side: {
-      image1: Betashares,
-      image2: LoopIcon,
+      image1: Shield,
+      image2: Cloud,
     },
   },
   {
     main: {
-      img: Expo,
+      img: Heart,
       text: "Groupe de santé : 7 000 dossiers patients protégés grâce au monitoring Strivehawk 24/7.",
     },
 
     side: {
-      image1: LoopIcon,
-      image2: MozillaIcon,
+      image1: Shield,
+      image2: Database,
     },
   },
   {
     main: {
-      img: KreaIcon,
+      img: ShoppingCart,
       text: "Retail panafricain : automatisation des flux e-commerce et intégration Shopify x ERP.",
     },
 
     side: {
-      image1: ChatGpt,
-      image2: PwcIcon,
+      image1: Cloud,
+      image2: RefreshCw,
     },
   },
 ];

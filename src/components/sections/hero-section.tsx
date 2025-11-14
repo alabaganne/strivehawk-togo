@@ -8,8 +8,8 @@ import { icons } from "@/utils/constant";
 export const HeroSection = () => {
   return (
     <div>
-      <Container className="py-[12rem]">
-        <Hero className="pt-[2rem]">
+      <Container className="py-16">
+        <Hero className="pt-8">
           <Button
             variant="quaternary"
             size="cta"
@@ -80,7 +80,7 @@ export const HeroSection = () => {
           </Marquee>
 
           <p className="text-sm text-secondary-text">
-            Trusted by fast-growing companies worldwide
+            Plus de 50 entreprises d'Afrique de l'Ouest nous font confiance
           </p>
         </Hero>
       </Container>
