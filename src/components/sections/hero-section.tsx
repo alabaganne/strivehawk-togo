@@ -80,7 +80,7 @@ export const HeroSection = () => {
           </Marquee>
 
           <p className="text-sm text-secondary-text">
-            Trusted by fast-growing companies worldwide
+            Plus de 50 entreprises d'Afrique de l'Ouest nous font confiance
           </p>
         </Hero>
       </Container>

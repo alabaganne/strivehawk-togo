@@ -7,10 +7,10 @@ export const Partnerships = () => {
     <Container className="py-16" id="partenariats">
       <div className="space-y-6 text-center max-w-4xl mx-auto">
         <Title>
-          En tant que filiale de Strivehawk US, nous nous appuyons sur ses partenaires internationaux pour offrir des solutions robustes aux entreprises africaines.
+          Un écosystème technologique complet pour accompagner votre croissance digitale et garantir des solutions performantes à chaque projet.
         </Title>
         <SubTitle>
-          Nous collaborons avec un réseau mondial de fournisseurs technologiques pour garantir des services fiables, sécurisés et performants à chaque étape de vos projets.
+          Nous intégrons les meilleures plateformes du marché pour offrir des services cloud, sécurité et développement de classe mondiale adaptés aux réalités africaines.
         </SubTitle>
       </div>
 
