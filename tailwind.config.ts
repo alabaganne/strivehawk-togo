@@ -26,6 +26,15 @@ const config: Config = {
                 sans: ["var(--font-jetbrains-mono)", "monospace"],
                 mono: ["var(--font-jetbrains-mono)", "monospace"],
             },
+            animation: {
+                "infinite-scroll": "infinite-scroll var(--animation-delay) linear infinite forwards",
+            },
+            keyframes: {
+                "infinite-scroll": {
+                    from: { transform: "translateX(0)" },
+                    to: { transform: "translateX(-50%)" },
+                },
+            },
         },
     },
     plugins: [],

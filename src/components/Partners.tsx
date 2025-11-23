@@ -1,10 +1,32 @@
-const partners = [
-    { name: "Acme Corp", logo: "AC" },
-    { name: "Global Tech", logo: "GT" },
-    { name: "Nebula", logo: "NB" },
-    { name: "Vertex", logo: "VX" },
-    { name: "Horizon", logo: "HZ" },
-    { name: "Elevate", logo: "EL" },
+import { Marquee } from "./marquee";
+import { Betashares } from "./icon/betashares-icon";
+import { ChatBaseIcon } from "./icon/chatbase-icon";
+import { GithubIcon } from "./icon/github-icon";
+import { HumataIcon } from "./icon/humata-icon";
+import { KreaIcon } from "./icon/krea-icon";
+import { LoopIcon } from "./icon/loop-icon";
+import { MobbinIcon } from "./icon/mobbin-icon";
+import { OnePassword } from "./icon/onepassword-icon";
+import { Pika } from "./icon/pika-icon";
+import { PwcIcon } from "./icon/pwc-icon";
+import { ResendIcon } from "./icon/resend-icon";
+import { UdioIcon } from "./icon/udio-icon";
+import { MozillaIcon } from "./icon/mozilla-icon";
+
+const icons = [
+    { component: Betashares, id: 1 },
+    { component: ChatBaseIcon, id: 2 },
+    { component: GithubIcon, id: 3 },
+    { component: HumataIcon, id: 4 },
+    { component: KreaIcon, id: 5 },
+    { component: LoopIcon, id: 7 },
+    { component: MobbinIcon, id: 8 },
+    { component: OnePassword, id: 9 },
+    { component: Pika, id: 10 },
+    { component: PwcIcon, id: 11 },
+    { component: ResendIcon, id: 12 },
+    { component: UdioIcon, id: 13 },
+    { component: MozillaIcon, id: 14 },
 ];
 
 export default function Partners() {
@@ -14,18 +36,26 @@ export default function Partners() {
                 <p className="text-center text-sm text-gray-500 mb-8 font-medium uppercase tracking-widest">
                     Ils nous font confiance
                 </p>
-                <div className="flex flex-wrap justify-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                    {partners.map((partner, index) => (
-                        <div key={index} className="flex items-center gap-2 group cursor-default">
-                            <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold text-white group-hover:bg-primary group-hover:text-black transition-colors">
-                                {partner.logo}
+                <Marquee className="flex items-center max-w-[70rem] mx-auto my-5 overflow-hidden mask-image-custom group">
+                    <div className="flex animate-infinite-scroll [--animation-delay:50s] group-hover:[animation-play-state:paused]">
+                        {icons.map((icon) => (
+                            <div
+                                key={icon.id}
+                                className="flex items-center mx-8 max-w-none"
+                            >
+                                <icon.component className="w-auto h-auto" />
                             </div>
-                            <span className="text-lg font-semibold text-white/40 group-hover:text-white transition-colors">
-                                {partner.name}
-                            </span>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                        {icons.map((icon) => (
+                            <div
+                                key={`duplicate-${icon.id}`}
+                                className="flex items-center mx-8 max-w-none"
+                            >
+                                <icon.component className="w-auto h-auto" />
+                            </div>
+                        ))}
+                    </div>
+                </Marquee>
             </div>
         </section>
     );
