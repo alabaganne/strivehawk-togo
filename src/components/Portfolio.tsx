@@ -150,38 +150,49 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects Grid with unique staggered layout */}
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {filteredProjects.map((project, index) => (
             <article
               key={index}
-              className="project-card group glass rounded-2xl overflow-hidden cursor-pointer card-hover"
+              className="project-card group glass rounded-2xl overflow-hidden cursor-pointer card-hover relative"
               data-category={project.category}
+              style={{
+                animationDelay: `${index * 0.1}s`,
+              }}
             >
-              <div className="relative aspect-video overflow-hidden">
+              {/* Unique hover glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-purple-500/0 to-primary/0 group-hover:from-primary/20 group-hover:via-purple-500/10 group-hover:to-primary/20 transition-all duration-500 rounded-2xl opacity-0 group-hover:opacity-100 -z-10 blur-xl"></div>
+              
+              <div className="relative aspect-video overflow-hidden rounded-t-2xl">
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-50 group-hover:opacity-70 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-50 group-hover:opacity-80 transition-all duration-500`}
                 />
-                <div className="absolute inset-0 flex items-center justify-center text-8xl">
+                <div className="absolute inset-0 flex items-center justify-center text-7xl md:text-8xl transform group-hover:scale-110 transition-transform duration-500">
                   {project.image}
                 </div>
-                <div className="absolute top-0 left-0 right-0 p-6">
-                  <span className="inline-block px-3 py-1.5 glass rounded-lg text-xs font-semibold text-foreground backdrop-blur-xl">
+                <div className="absolute top-0 left-0 right-0 p-4 md:p-6">
+                  <span className="inline-block px-3 py-1.5 glass rounded-lg text-xs font-semibold text-foreground backdrop-blur-xl border border-glass-border">
                     {project.tag}
                   </span>
                 </div>
+                
+                {/* Unique overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+              <div className="p-6 relative">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted leading-relaxed mb-4 line-clamp-2">
+                <p className="text-muted leading-relaxed mb-4 line-clamp-2 text-sm md:text-base">
                   {project.description}
                 </p>
 
-                <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-lg">
-                  <span className="text-lg">{project.icon}</span>
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-primary/10 border border-primary/30 rounded-lg group-hover:bg-primary/20 group-hover:border-primary/50 transition-all">
+                  <span className="text-lg transform group-hover:scale-110 transition-transform">
+                    {project.icon}
+                  </span>
                   <span className="text-sm font-semibold text-primary">
                     {project.metrics}
                   </span>

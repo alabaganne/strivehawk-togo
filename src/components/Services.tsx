@@ -53,23 +53,35 @@ export default function Services() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <FadeIn key={index} delay={index * 0.1}>
-              <div className="group glass rounded-2xl p-8 transition-all duration-500 hover:border-primary/30 hover:-translate-y-2 h-full flex flex-col card-hover">
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110">
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
-                <p className="text-muted leading-relaxed mb-6 flex-grow">{service.description}</p>
+              <div className="group glass rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-primary/50 hover:-translate-y-2 h-full flex flex-col card-hover relative overflow-hidden">
+                {/* Unique background glow on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-purple-500/0 to-primary/0 group-hover:from-primary/10 group-hover:via-purple-500/5 group-hover:to-primary/10 transition-all duration-500 rounded-2xl opacity-0 group-hover:opacity-100 -z-10 blur-2xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted leading-relaxed mb-6 flex-grow text-sm md:text-base">
+                    {service.description}
+                  </p>
 
-                <div className="space-y-2 pt-6 border-t border-border">
-                  {service.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm text-muted">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      {feature}
-                    </div>
-                  ))}
+                  <div className="space-y-2.5 pt-6 border-t border-border">
+                    {service.features.map((feature, i) => (
+                      <div 
+                        key={i} 
+                        className="flex items-center gap-2.5 text-sm text-muted group-hover:text-foreground/80 transition-colors"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:scale-150 transition-transform" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </FadeIn>

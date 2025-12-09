@@ -170,6 +170,119 @@ body {
   outline-offset: 2px;
 }
 
+/* Unique custom cursor effect (optional, can be enabled) */
+/* 
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="%233b82f6" stroke-width="2"/></svg>') 12 12, auto;
+}
+*/
+
+/* Unique gradient animations */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Unique card tilt effect */
+.card-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* Better line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Interactive title animations */
+@keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) translateX(calc(var(--random-x, 0) * 1px));
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+/* Particle animation */
+.particle {
+  animation: float linear infinite;
+  --random-x: calc((var(--i, 0) - 0.5) * 100);
+}
+
+/* Letter spacing for better readability */
+.letter {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.word-wrapper {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+  transform-style: preserve-3d;
+}
+
+/* Enhanced gradient text with better rendering */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #3b82f6 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Performance optimization */
+.word-wrapper,
+.letter {
+  will-change: transform;
+}
+
+/* Disable animations on reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .letter,
+  .word-wrapper,
+  .particle {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 @layer utilities {
   .mask-image-custom {
     -webkit-mask-image: linear-gradient(

@@ -31,8 +31,11 @@ const icons = [
 
 export default function Partners() {
     return (
-        <section className="py-16 border-b border-border bg-background">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="py-20 border-b border-border bg-background relative overflow-hidden">
+            {/* Unique background decoration */}
+            <div className="absolute inset-0 bg-grid-pattern opacity-[0.015]"></div>
+            
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <p className="text-center text-sm text-muted mb-12 font-medium uppercase tracking-widest">
                     Trusted by 50+ companies
                 </p>
@@ -41,17 +44,17 @@ export default function Partners() {
                         {icons.map((icon) => (
                             <div
                                 key={icon.id}
-                                className="flex items-center mx-8 max-w-none opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                                className="flex items-center mx-8 max-w-none opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 transform hover:scale-110"
                             >
-                                <icon.component className="w-auto h-auto text-muted" />
+                                <icon.component className="w-auto h-auto text-muted hover:text-foreground transition-colors" />
                             </div>
                         ))}
                         {icons.map((icon) => (
                             <div
                                 key={`duplicate-${icon.id}`}
-                                className="flex items-center mx-8 max-w-none opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                                className="flex items-center mx-8 max-w-none opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 transform hover:scale-110"
                             >
-                                <icon.component className="w-auto h-auto text-muted" />
+                                <icon.component className="w-auto h-auto text-muted hover:text-foreground transition-colors" />
                             </div>
                         ))}
                     </div>

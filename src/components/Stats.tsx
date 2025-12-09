@@ -47,20 +47,31 @@ export default function Stats() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-surface border-b border-border">
-      <div className="max-w-7xl mx-auto">
-        <div ref={countersRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+    <section ref={sectionRef} className="py-24 px-6 bg-surface border-b border-border relative overflow-hidden">
+      {/* Unique background decoration */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div ref={countersRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center glass rounded-2xl p-8">
-              <div
-                className="stat-number text-4xl md:text-6xl font-bold text-foreground mb-2 gradient-text"
-                data-target={stat.value}
-                data-suffix={stat.suffix}
-              >
-                0{stat.suffix}
-              </div>
-              <div className="text-sm md:text-base text-muted font-medium">
-                {stat.label}
+            <div 
+              key={index} 
+              className="text-center glass rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-105 hover:border-primary/50 group relative overflow-hidden"
+            >
+              {/* Unique glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-purple-500/0 group-hover:from-primary/10 group-hover:to-purple-500/10 transition-all duration-500 rounded-2xl"></div>
+              
+              <div className="relative z-10">
+                <div
+                  className="stat-number text-4xl md:text-6xl font-bold text-foreground mb-2 gradient-text"
+                  data-target={stat.value}
+                  data-suffix={stat.suffix}
+                >
+                  0{stat.suffix}
+                </div>
+                <div className="text-sm md:text-base text-muted font-medium group-hover:text-foreground transition-colors">
+                  {stat.label}
+                </div>
               </div>
             </div>
           ))}
