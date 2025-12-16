@@ -109,29 +109,29 @@ export default function ContactPage() {
         </div>
 
         {/* Globe horizon glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] h-[60vh]">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250%] h-[85vh]">
           {/* Main globe arc */}
           <div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full aspect-[2/1] rounded-[100%] border-t border-primary/30"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full aspect-[1.8/1] rounded-[100%] border-t-2 border-primary/40"
             style={{
-              background: 'radial-gradient(ellipse at center top, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 30%, transparent 60%)',
-              boxShadow: '0 -40px 100px rgba(59, 130, 246, 0.2), 0 -20px 60px rgba(59, 130, 246, 0.15), inset 0 2px 20px rgba(59, 130, 246, 0.1)',
+              background: 'radial-gradient(ellipse at center top, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.08) 35%, transparent 65%)',
+              boxShadow: '0 -60px 150px rgba(59, 130, 246, 0.25), 0 -30px 80px rgba(59, 130, 246, 0.2), inset 0 4px 30px rgba(59, 130, 246, 0.15)',
             }}
           />
           {/* Horizon glow line */}
           <div
-            className="absolute bottom-[49%] left-0 right-0 h-[2px]"
+            className="absolute bottom-[49%] left-0 right-0 h-[3px]"
             style={{
-              background: 'linear-gradient(to right, transparent 10%, rgba(59, 130, 246, 0.4) 30%, rgba(96, 165, 250, 0.6) 50%, rgba(59, 130, 246, 0.4) 70%, transparent 90%)',
-              boxShadow: '0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.3), 0 0 100px rgba(59, 130, 246, 0.2)',
+              background: 'linear-gradient(to right, transparent 5%, rgba(59, 130, 246, 0.5) 25%, rgba(96, 165, 250, 0.8) 50%, rgba(59, 130, 246, 0.5) 75%, transparent 95%)',
+              boxShadow: '0 0 40px rgba(59, 130, 246, 0.6), 0 0 80px rgba(59, 130, 246, 0.4), 0 0 120px rgba(59, 130, 246, 0.25)',
             }}
           />
           {/* Light beam from horizon */}
           <div
-            className="absolute bottom-[50%] left-1/2 -translate-x-1/2 w-[40%] h-[50vh]"
+            className="absolute bottom-[50%] left-1/2 -translate-x-1/2 w-[50%] h-[70vh]"
             style={{
-              background: 'linear-gradient(to top, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 100%)',
-              clipPath: 'polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%)',
+              background: 'linear-gradient(to top, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.1) 30%, rgba(59, 130, 246, 0.03) 60%, transparent 100%)',
+              clipPath: 'polygon(35% 0%, 65% 0%, 100% 100%, 0% 100%)',
             }}
           />
         </div>
