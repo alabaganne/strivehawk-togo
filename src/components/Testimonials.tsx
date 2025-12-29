@@ -8,27 +8,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
-    quote: "Strivehawk a transformé notre présence en ligne. Le site qu'ils ont créé a augmenté nos conversions de 240% en 3 mois.",
-    author: "Marie Dubois",
-    role: "CEO, TechFlow",
-    metric: "+240%",
-    metricLabel: "conversions",
+    quote: "Strivehawk est un partenaire exceptionnel pour notre entreprise. Ils nous ont aidés à moderniser notre infrastructure informatique et à améliorer considérablement notre présence en ligne. Leur équipe est réactive, compétente et très agréable à côtoyer. Leur approche globale nous a permis de gagner du temps et d'éviter bien des tracas, et leur assistance continue est d'une grande fiabilité. Nous les recommandons vivement si vous recherchez un partenaire technologique de confiance.",
+    author: "Kran Malik",
+    role: "Client",
     gradient: 'from-blue-500 to-cyan-400',
   },
   {
-    quote: "Une équipe exceptionnelle qui comprend vraiment les enjeux business. Leur expertise en IA nous a donné un avantage concurrentiel énorme.",
-    author: "Thomas Laurent",
-    role: "Directeur Marketing, DataCorp",
-    metric: "Top 3",
-    metricLabel: "du marché",
+    quote: "Strivehawk a révolutionné notre système informatique. Réactivité, surveillance proactive et support sans incident. Ils ont renforcé notre sécurité, rationalisé nos outils cloud et nous ont fait gagner des heures chaque semaine. Communication claire, prix justes et résultats tangibles. Je recommande vivement !",
+    author: "Brian Horton",
+    role: "Tire Nation Point S & Auto Service",
     gradient: 'from-violet-500 to-purple-400',
   },
   {
-    quote: "Le professionnalisme et la créativité de Strivehawk sont incomparables. Ils ont dépassé toutes nos attentes.",
-    author: "Sophie Martin",
-    role: "Fondatrice, CreativeHub",
-    metric: "100%",
-    metricLabel: "satisfaite",
+    quote: "Cette équipe nous a aidés à concevoir notre site web, nos réseaux sociaux, nos contenus graphiques, notre messagerie professionnelle et la configuration de notre système de point de vente afin de simplifier la prise de rendez-vous pour nos clients. L'équipe se surpasse pour fournir un excellent service pour nos services d'esthétique automobile à Centralia, et nous en sommes très satisfaits et reconnaissants. Nous les recommandons sans hésiter à toute entreprise pour ses besoins technologiques.",
+    author: "Martinez Auto Detail",
+    role: "Services d'esthétique automobile",
     gradient: 'from-emerald-500 to-green-400',
   },
 ];
@@ -91,23 +85,22 @@ export default function Testimonials() {
               <div className={`h-1 bg-gradient-to-r ${testimonial.gradient}`} />
 
               <div className="p-6">
-                {/* Metric badge */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`px-3 py-1.5 rounded-lg bg-gradient-to-r ${testimonial.gradient}`}>
-                    <span className="text-white font-bold text-lg">{testimonial.metric}</span>
-                  </div>
-                  <span className="text-sm text-muted">{testimonial.metricLabel}</span>
+                {/* Quote icon */}
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${testimonial.gradient} flex items-center justify-center mb-4`}>
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
                 </div>
 
                 {/* Quote */}
-                <p className="text-foreground leading-relaxed mb-6">
+                <p className="text-foreground leading-relaxed mb-6 text-sm">
                   "{testimonial.quote}"
                 </p>
 
                 {/* Author */}
                 <div className="flex items-center gap-3 pt-4 border-t border-border">
                   <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-sm`}>
-                    {testimonial.author.split(' ').map(n => n[0]).join('')}
+                    {testimonial.author.split(' ').map(n => n[0]).join('').slice(0, 2)}
                   </div>
                   <div>
                     <div className="font-semibold text-foreground text-sm">

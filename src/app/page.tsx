@@ -5,8 +5,7 @@ import Stats from '@/components/Stats';
 import Services from '@/components/Services';
 import WhyStrivehawk from '@/components/WhyStrivehawk';
 import Process from '@/components/Process';
-import TechStack from '@/components/TechStack';
-import Portfolio from '@/components/Portfolio';
+import Values from '@/components/Values';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
@@ -22,8 +21,7 @@ export default function Home() {
       <Stats />
       <Services />
       <Process />
-      <TechStack />
-      <Portfolio />
+      <Values />
       <Testimonials />
       <FAQ />
       <CTA />
