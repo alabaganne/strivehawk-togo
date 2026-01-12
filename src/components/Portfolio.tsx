@@ -1,107 +1,79 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   HiCloud,
   HiShieldCheck,
-  HiShoppingCart,
-  HiVideoCamera,
-  HiChartBar,
-  HiSparkles,
-  HiShieldCheck as ShieldIcon,
-  HiTrendingUp,
-  HiLightningBolt,
-  HiStar
+  HiCalendar,
+  HiGlobeAlt,
+  HiSpeakerphone,
+  HiColorSwatch,
 } from 'react-icons/hi';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "Système Cloud Centralisé",
-    category: "it",
-    tag: "IT • Cloud",
-    description: "Infrastructure cloud unifiée pour améliorer la collaboration et fluidifier les opérations multi-sites.",
+    title: 'Système Cloud Centralisé',
+    tag: 'IT • Cloud Infrastructure',
+    description:
+      'Nous avons déployé une infrastructure cloud unifiée pour améliorer la collaboration et fluidifier les opérations multi-sites. La transition a permis un accès plus rapide, à distance, fiable et sécurisé aux outils essentiels.',
     icon: HiCloud,
-    gradient: "from-blue-500 to-cyan-400",
-    metrics: "+10h gagnées/semaine",
-    metricIcon: HiTrendingUp,
+    gradient: 'from-blue-500 to-cyan-400',
+    metrics: '+10h gagnées par semaine',
   },
   {
-    title: "Protection Multi-Niveaux",
-    category: "cyber",
-    tag: "Cybersécurité",
-    description: "Protection à plusieurs niveaux avec surveillance continue renforcée pour sécuriser vos données.",
+    title: 'Protection Cybersécurité Multi-Niveaux',
+    tag: 'Cybersécurité • Protection',
+    description:
+      "Nous avons mis en place une protection à plusieurs niveaux, réduit les vulnérabilités critiques et renforcé la surveillance continue. L'entreprise bénéficie désormais d'un environnement de travail beaucoup plus sécurisé.",
     icon: HiShieldCheck,
-    gradient: "from-emerald-500 to-green-400",
-    metrics: "Risques réduits",
-    metricIcon: ShieldIcon,
+    gradient: 'from-emerald-500 to-green-400',
+    metrics: 'Sécurité renforcée & risques réduits',
   },
   {
-    title: "Plateforme E-commerce",
-    category: "web",
-    tag: "Web • E-commerce",
-    description: "Marketplace moderne avec système de recommandation IA et paiement sécurisé.",
-    icon: HiShoppingCart,
-    gradient: "from-violet-500 to-purple-400",
-    metrics: "€2M+ de ventes",
-    metricIcon: HiTrendingUp,
+    title: 'Application de Prise de Rendez-Vous sur mesure',
+    tag: 'Solution Digitale • Web App & Automatisation',
+    description:
+      "Nous avons conçu une web app de réservation personnalisée avec gestion d'horaires complexes, multiples créneaux par jour, rappels automatiques, synchronisation interne et politique de no-show intégrée. Une solution digitale simple, fiable et pensée pour optimiser chaque minute.",
+    icon: HiCalendar,
+    gradient: 'from-violet-500 to-purple-400',
+    metrics: 'Process digitalisé & réduction des no-shows',
   },
   {
-    title: "Campagne Vidéo Premium",
-    category: "design",
-    tag: "Video • Marketing",
-    description: "Série de vidéos promotionnelles avec motion design et storytelling engageant.",
-    icon: HiVideoCamera,
-    gradient: "from-orange-500 to-amber-400",
-    metrics: "10M+ vues",
-    metricIcon: HiTrendingUp,
+    title: 'Refonte de Site Web Moderne',
+    tag: 'Web Design • UX/UI',
+    description:
+      "Nous avons transformé un site vieillissant en une plateforme rapide, responsive et orientée conversion. La nouvelle expérience utilisateur a augmenté l'engagement et facilité les demandes en ligne.",
+    icon: HiGlobeAlt,
+    gradient: 'from-orange-500 to-amber-400',
+    metrics: '+35% de demandes en ligne',
   },
   {
-    title: "Dashboard Analytique",
-    category: "it",
-    tag: "Data • Analytics",
-    description: "Dashboard avec visualisations interactives et prédictions ML en temps réel.",
-    icon: HiChartBar,
-    gradient: "from-indigo-500 to-blue-400",
-    metrics: "99.9% uptime",
-    metricIcon: HiLightningBolt,
+    title: "Campagne d'Engagement Social",
+    tag: 'Marketing Digital • Branding',
+    description:
+      "Nous avons conçu des visuels cohérents et une stratégie de contenu ciblée pour améliorer la portée et l'interaction. La campagne a renforcé la visibilité et généré une forte hausse de l'engagement.",
+    icon: HiSpeakerphone,
+    gradient: 'from-pink-500 to-rose-400',
+    metrics: "+45% d'engagement",
   },
   {
-    title: "Film de Marque Luxe",
-    category: "design",
-    tag: "Video • Luxury",
-    description: "Film de marque haut de gamme avec effets cinématographiques premium.",
-    icon: HiSparkles,
-    gradient: "from-amber-500 to-yellow-400",
-    metrics: "Award winner",
-    metricIcon: HiStar,
+    title: 'Identité de Marque Complète',
+    tag: 'Design • Identité Visuelle',
+    description:
+      'Nous avons développé une identité visuelle cohérente — logo, couleurs, éléments graphiques — pour améliorer la crédibilité et la reconnaissance de la marque à travers tous ses supports.',
+    icon: HiColorSwatch,
+    gradient: 'from-indigo-500 to-blue-400',
+    metrics: 'Identité harmonisée & crédibilité renforcée',
   },
-];
-
-const categories = [
-  { id: 'all', label: 'Tous' },
-  { id: 'it', label: 'IT & Cloud' },
-  { id: 'cyber', label: 'Cybersécurité' },
-  { id: 'web', label: 'Web & Apps' },
-  { id: 'design', label: 'Design' },
 ];
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [filteredProjects, setFilteredProjects] = useState(projects);
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (activeFilter === 'all') {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter(p => p.category === activeFilter));
-    }
-  }, [activeFilter]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -125,10 +97,14 @@ export default function Portfolio() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [filteredProjects]);
+  }, []);
 
   return (
-    <section id="portfolio" ref={sectionRef} className="py-32 px-6 bg-background relative overflow-hidden">
+    <section
+      id="portfolio"
+      ref={sectionRef}
+      className="py-32 px-6 bg-background relative overflow-hidden"
+    >
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -137,36 +113,22 @@ export default function Portfolio() {
           <span className="text-primary text-sm font-semibold uppercase tracking-wider mb-4 block">
             Portfolio
           </span>
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            <span className="gradient-text">Projets qui créent</span> de l'impact
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <span className="gradient-text">Projets qui créent de l'impact,</span>{' '}
+            concrètes, pensées pour les personnes
           </h2>
-          <p className="text-lg text-muted max-w-2xl">
-            Découvrez comment nos solutions ont permis à nos clients d'avancer plus vite et en toute confiance.
+          <p className="text-lg text-muted max-w-3xl">
+            Chaque projet Strivehawk part d'un besoin réel et se construit autour
+            des personnes qui utilisent la technologie au quotidien. Notre
+            objectif : simplifier le travail, améliorer l'organisation et soutenir
+            une croissance durable.
           </p>
-        </div>
-
-        {/* Filter buttons */}
-        <div className="flex flex-wrap gap-2 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveFilter(category.id)}
-              className={`px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
-                activeFilter === category.id
-                  ? 'bg-primary text-white shadow-lg shadow-primary/25'
-                  : 'bg-surface border border-border text-muted hover:text-foreground hover:border-primary/40'
-              }`}
-            >
-              {category.label}
-            </button>
-          ))}
         </div>
 
         {/* Project cards */}
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, index) => {
+          {projects.map((project, index) => {
             const IconComponent = project.icon;
-            const MetricIconComponent = project.metricIcon;
 
             return (
               <article
@@ -174,13 +136,19 @@ export default function Portfolio() {
                 className="project-card group bg-surface border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5"
               >
                 {/* Icon header */}
-                <div className={`relative h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                <div
+                  className={`relative h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}
+                >
                   {/* Pattern overlay */}
                   <div className="absolute inset-0 opacity-20">
-                    <div className="absolute inset-0" style={{
-                      backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-                      backgroundSize: '24px 24px'
-                    }} />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage:
+                          'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                        backgroundSize: '24px 24px',
+                      }}
+                    />
                   </div>
 
                   {/* Icon */}
@@ -208,11 +176,11 @@ export default function Portfolio() {
 
                   {/* Metrics */}
                   <div className="flex items-center gap-2 pt-4 border-t border-border">
-                    <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                      <MetricIconComponent className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-sm font-semibold text-foreground">
-                      {project.metrics}
+                    <div
+                      className={`w-2 h-2 rounded-full bg-gradient-to-br ${project.gradient}`}
+                    />
+                    <span className="text-sm font-semibold text-primary">
+                      ➡ {project.metrics}
                     </span>
                   </div>
                 </div>
