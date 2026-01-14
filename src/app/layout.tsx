@@ -67,7 +67,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.variable} ${imperialScript.variable}`}>
+      <body className={`${outfit.variable} ${imperialScript.variable}`} suppressHydrationWarning>
         <ThemeProvider>
           <SmoothScroll />
           {children}
