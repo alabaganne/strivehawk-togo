@@ -7,8 +7,8 @@ import FadeIn from './FadeIn';
 
 const faqs = [
     {
-        question: "Combien de temps faut-il pour réaliser un projet web ?",
-        answer: "Le délai varie selon la complexité, mais nous visons généralement à livrer une landing page entièrement fonctionnelle en 2 à 4 semaines, en garantissant rapidité et performance."
+        question: "À qui s'adressent vos services ?",
+        answer: "Nos services s'adressent aux entreprises, startups, PME, institutions et organismes gouvernementaux à la recherche de solutions fiables en IT, cybersécurité, cloud et digitalisation. Nous accompagnons aussi bien des structures en phase de lancement que des organisations établies souhaitant optimiser leurs opérations, renforcer leur sécurité et gagner en efficacité."
     },
     {
         question: "Qu'est-ce qu'un audit de funnel et pourquoi est-ce important ?",

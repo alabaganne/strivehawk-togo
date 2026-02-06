@@ -48,8 +48,8 @@ export async function POST(request: NextRequest) {
     const safeMessage = escapeHtml(message);
 
     const msg = {
-      to: 'alabaganne9@gmail.com',
-      from: process.env.SENDGRID_FROM_EMAIL || 'lome@strivehawk.com',
+      to: 'strivehawktg@gmail.com',
+      from: process.env.SENDGRID_FROM_EMAIL || 'strivehawktg@gmail.com',
       replyTo: email,
       subject: `Nouvelle demande de contact - ${safeName}`,
       html: `

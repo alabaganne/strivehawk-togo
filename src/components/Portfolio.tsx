@@ -129,8 +129,8 @@ export default function Portfolio() {
             Portfolio
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            <span className="gradient-text">Projets qui créent de l'impact,</span>{' '}
-            concrètes, pensées pour les personnes
+            <span className="gradient-text">Projets qui créent de l&apos;impact,</span>{' '}
+            Pensés pour les personnes
           </h2>
           <p className="text-lg text-muted max-w-3xl">
             Chaque projet Strivehawk part d'un besoin réel et se construit autour
