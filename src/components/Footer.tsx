@@ -16,6 +16,13 @@ const footerLinks = {
     { label: 'Développement', href: '/#services' },
     { label: 'Support IT', href: '/#services' },
   ],
+  legal: [
+    { label: 'Politique de Confidentialité', href: '/legal#confidentialite' },
+    { label: 'Conditions Générales de Vente', href: '/legal#cgv' },
+    { label: "Conditions d'Utilisation", href: '/legal#conditions-utilisation' },
+    { label: 'Déclaration d\'Accessibilité', href: '/legal#accessibilite' },
+    { label: 'Gestion des Cookies', href: '/legal#cookies' },
+  ],
 };
 
 const contactInfo = [
@@ -51,15 +58,6 @@ const contactInfo = [
 
 const socialLinks = [
   {
-    name: 'Twitter',
-    href: '#',
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
     name: 'LinkedIn',
     href: '#',
     icon: (
@@ -84,7 +82,7 @@ export default function Footer() {
     <footer className="bg-surface border-t border-border">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
@@ -178,6 +176,25 @@ export default function Footer() {
                       {item.label}
                     </span>
                   )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
+              Légal
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
